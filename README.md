@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# 코딩 애플강의 정리
+- JSX   
+  1. return 안의 html 태그를 js에서 사용하는 문법 div class 가 아닌이유는 js class 와 겹치기때문
+  2. 변수넣을 땐 {} 
+  3. style={{스타일명 : '값'}}, 스타일명은 camelcase 작성, 중간에 '-' 은 js에서 마이너스 연산으로 인식함 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- 리액트 문법
+  1. return() 안에는 병렬로 태그 2개 이상 기입금지
+  2. useState
+    일반 변수는 갑자기 변경되면 반영이 안된다.   
+    State 는 값이 변경시 html 리렌더링이 자동으로 된다.   
+    => 자주변경될거같은 부분에 사용한다.   
+  3. 등호(=) 사용 금지   
+      ```
+      let num = [1,2];
+      let a = num[0];
+      let C = num[1];
+      let [a, c] = [1, 2]  -> JS의 Destructuring 문법 useState에 활용하는것
+      ```
+- state 변경함수 특징   
+    기존 state == 신규 state 의 경우 변경안해줌.   
 
-## Available Scripts
+- array/object 특징
 
-In the project directory, you can run:
+      let arr = [1,2,3];   
+      js도 arr/object 는 값의 주소가 저장된다.   
 
-### `npm start`
+      let arr1 = arr2;   
+      arr2[0] = 다른값;   
+      setState(arr2);   
+      => 리랜더링 x, 왜냐하면 arr1, arr2 은 reference 가 똑같으므로 기존 state == 신규 state 라고 판단하기 때문에 변경 안해줌;   
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- component 언제 쓸까   
+    (1) 반복적인 html 축약   
+    (2) 큰 페이지를 component 단위로   
+    (3) 자주변경되는 것들   
